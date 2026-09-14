@@ -1,0 +1,11 @@
+/build/
+/data/
+/.local/
+*.o
+*.log
+/cfiles.tar
+/pdf.tar
+/text.tar
+/zip.tar
+.DS_Store
+Thumbs.db
