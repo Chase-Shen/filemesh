@@ -1,4 +1,4 @@
-# FileMesh
+# FileMesh — Distributed File Storage System
 
 A small distributed file-storage prototype written in C. One gateway presents a
 single remote directory tree while routing files to separate storage processes
