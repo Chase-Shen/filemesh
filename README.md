@@ -120,20 +120,3 @@ export FILEMESH_DATA_DIR="$PWD/data"
 
 Ports and the localhost address are centralized in `include/server_utils.h`.
 The new storage layout does not move data from earlier versions automatically.
-
-## Limitations and safety
-
-- There is no authentication, authorization, TLS, replication, or failover.
-  Servers bind only to loopback; do not expose them to untrusted users.
-- Each file is limited to `INT_MAX` bytes by the wire protocol; paths are bounded
-  by a 1024-byte buffer.
-- Uploads are not transactional, and concurrent writes to the same name are not
-  coordinated. An interrupted overwrite can lose an existing file.
-- Path checks are lexical, not a filesystem sandbox. Do not place symlinks in
-  storage directories or share them with untrusted local processes.
-- Directory listings can be partial when a storage node is unavailable.
-- There are no connection timeouts, quotas, or limits on the number of forked
-  connection processes.
-
-Useful future extensions include configurable network endpoints, atomic uploads,
-authenticated sessions, checksums, larger file-size frames, and replication.
